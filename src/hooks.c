@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:50:21 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:59:45 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:43:50 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,28 +60,28 @@ void	go_left(t_map *map, t_player *player, t_img *img)
 	draw_map(map, img);
 }
 
-int	detect_key(int key_code, t_map *map, t_player *player, t_map *img)
+int	detect_key(int key_code, t_map *map)
 {
 	if (key_code == ESC)
 		end_game();
 	if (map->coins == 0 && ((key_code == A
-				&& map->map[player->player_y][player->player_x - 1] == 'E')
-		|| (key_code == D && map->map[player->player_y][player->player_x + 1] == 'E')
-		|| (key_code == S && map->map[player->player_y + 1][player->player_x] == 'E')
+				&& map->map[map->player.player_y][map->player.player_x - 1] == 'E')
+		|| (key_code == D && map->map[map->player.player_y][map->player.player_x + 1] == 'E')
+		|| (key_code == S && map->map[map->player.player_y + 1][map->player.player_x] == 'E')
 		|| (key_code == W
-			&& map->map[player->player_y - 1][player->player_x] == 'E')))
+			&& map->map[map->player.player_y - 1][map->player.player_x] == 'E')))
 		win_game(map);
-	if (key_code == A && map->map[player->player_y][player->player_x - 1] != 'E'
-		&& key_code == A && map->map[player->player_y][player->player_x - 1] != '1')
-		go_left(map, player, img);
-	if (key_code == D && map->map[player->player_y][player->player_x + 1] != 'E'
-		&& key_code == D && map->map[player->player_y][player->player_x + 1] != '1')
-		go_right(map, player, img);
-	if (key_code == S && map->map[player->player_y + 1][player->player_x] != 'E'
-		&& key_code == S && map->map[player->player_y + 1][player->player_x] != '1')
-		go_down(map, player, img);
-	if (key_code == W && map->map[player->player_y - 1][player->player_x] != 'E'
-		&& key_code == W && map->map[player->player_y - 1][player->player_x] != '1')
-		go_up(map, player, img);
+	if (key_code == A && map->map[map->player.player_y][map->player.player_x - 1] != 'E'
+		&& key_code == A && map->map[map->player.player_y][map->player.player_x - 1] != '1')
+		go_left(map, &map->player, &map->img);
+	if (key_code == D && map->map[map->player.player_y][map->player.player_x + 1] != 'E'
+		&& key_code == D && map->map[map->player.player_y][map->player.player_x + 1] != '1')
+		go_right(map, &map->player, &map->img);
+	if (key_code == S && map->map[map->player.player_y + 1][map->player.player_x] != 'E'
+		&& key_code == S && map->map[map->player.player_y + 1][map->player.player_x] != '1')
+		go_down(map, &map->player, &map->img);
+	if (key_code == W && map->map[map->player.player_y - 1][map->player.player_x] != 'E'
+		&& key_code == W && map->map[map->player.player_y - 1][map->player.player_x] != '1')
+		go_up(map, &map->player, &map->img);
 	return (1);
 }

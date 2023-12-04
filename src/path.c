@@ -6,62 +6,84 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:58:27 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/04 16:07:38 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:49:04 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	flood_fill_from_player(t_map map, int column, int row)
-{	
-	if (map.map[column][row] != '1')
+int	flood_fill_from_player(t_map *map, int column, int row)
+{			
+	
+	// printf("MAPA:%s\n", map->map[0]);
+	// printf("MAPA:%s\n", map->map[1]);
+	// printf("MAPA:%s\n", map->map[2]);
+	// printf("------------------------\n");
+	if (map->map[column][row] != '1')
 	{		
-		if (map.map[column][row] == 'C')
-			map.coins--;
-		map.map[column][row] = '1';
-		if (map.map[column][row + 1] != '1'
-			&& map.map[column][row + 1] != 'E')
+		if (map->map[column][row] == 'C')
+		{
+			map->coins--;
+			// ft_printf("COIN:%i\n", map->coins);
+			}
+		map->map[column][row] = '1';
+		if (map->map[column][row + 1] != '1'
+			&& map->map[column][row + 1] != 'E')
 			flood_fill_from_player(map, column, row + 1);
-		if (map.map[column][row - 1] != '1'
-			&& map.map[column][row - 1] != 'E')
+		if (map->map[column][row - 1] != '1'
+			&& map->map[column][row - 1] != 'E')
 			flood_fill_from_player(map, column, row - 1);
-		if (map.map[column + 1][row] != '1'
-			&& map.map[column + 1][row] != 'E')
+		if (map->map[column + 1][row] != '1'
+			&& map->map[column + 1][row] != 'E')
 			flood_fill_from_player(map, column + 1, row);
-		if (map.map[column - 1][row] != '1'
-			&& map.map[column - 1][row] != 'E')
+		if (map->map[column - 1][row] != '1'
+			&& map->map[column - 1][row] != 'E')
 			flood_fill_from_player(map, column - 1, row);
 	}
-	return (map.coins);
+	// ft_printf("COIN:%s%i\n",COLOR_RED ,map->coins);
+	return (map->coins);
 }
 
-int	flood_fill_from_exit(t_map map, int column, int row)
+int	flood_fill_from_exit(t_map *map2, int column, int row)
 {
-	if (map.map[column][row] != '1')
+	printf("floodfillfromexit:%s%i\n", COLOR_GREEN, map2->coins);
+	
+	if (map2->map[column][row] != '1')
 	{
-		if (map.map[column][row] == 'C')
-			map.coins--;
-		map.map[column][row] = '1';
-		if (map.map[column][row + 1] != '1')
-			flood_fill_from_exit(map, column, row + 1);
-		if (map.map[column][row - 1] != '1')
-			flood_fill_from_exit(map, column, row - 1);
-		if (map.map[column + 1][row] != '1')
-			flood_fill_from_exit(map, column + 1, row);
-		if (map.map[column - 1][row] != '1')
-			flood_fill_from_exit(map, column - 1, row);
+		if (map2->map[column][row] == 'C')
+			map2->coins--;
+		printf("floodfillfromexit:%s%i\n", COLOR_GREEN, map2->coins);
+		map2->map[column][row] = '1';
+		if (map2->map[column][row + 1] != '1')
+			flood_fill_from_exit(map2, column, row + 1);
+		if (map2->map[column][row - 1] != '1')
+			flood_fill_from_exit(map2, column, row - 1);
+		if (map2->map[column + 1][row] != '1')
+			flood_fill_from_exit(map2, column + 1, row);
+		if (map2->map[column - 1][row] != '1')
+			flood_fill_from_exit(map2, column - 1, row);
 	}	
-	return (map.coins);
+	// printf("%s%i\n", COLOR_BLUE, map->coins);
+	return (map2->coins);
 }
 
 
-void	check_path(t_map map, t_player player)
+void	check_path(t_map map, t_map map2)
 {
 	int i;
 	int j;
 
-	i = flood_fill_from_player(map, player.player_y, player.player_x);
-	j = flood_fill_from_exit(map, map.exit_y, map.exit_x);
+	printf("%i\n", map.coins);printf("MAPA:%s\n", map2.map[0]);
+	printf("MAPA:%s\n", map2.map[1]);
+	printf("MAPA:%s\n\n", map2.map[2]);
+	i = flood_fill_from_player(&map, map.player.player_y, map.player.player_x);
+	printf("MAPA:%s\n", map2.map[0]);
+	printf("MAPA:%s\n", map2.map[1]);
+	printf("MAPA:%s\n", map2.map[2]);
+	j = flood_fill_from_exit(&map2, map2.exit_y, map2.exit_x);
+	
+	printf("COINs1:%i\n", i);
+	printf("COINs2:%i\n", j);
 	if (i > 0 || j > 0)
 		ft_error(9, &map);
 }

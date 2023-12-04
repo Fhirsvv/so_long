@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:14:42 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/04 16:05:53 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:44:46 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	check_arguments(int argc, char *argv, t_map *map)
 		if ((ft_strncmp(".ber", argv + (len - 4), 4)))
 			ft_error(2, map);
 	}
+	printf("HOLII\n");
 }
 
 void	read_map(char *argv, t_map *map)
@@ -34,10 +35,11 @@ void	read_map(char *argv, t_map *map)
 	char	*map_str[2];
 	char	*aux_str;
 
-	map_str[0] = NULL;
+	map_str[0] = ft_strdup("");
 	fd = open(argv, O_RDONLY);
 	if (!fd || fd < 0)
 		ft_error(1, map);
+	printf("HOLII1\n");
 	while (1)
 	{
 		aux_str = get_next_line(fd);
@@ -51,10 +53,10 @@ void	read_map(char *argv, t_map *map)
 		map_str[0] = ft_strjoin_2(map_str[1], aux_str);
 		free(aux_str);
 	}
-	fill_map(map, map_str[0]);
-	map->map[0] = ft_split(map_str[0], '\n');
+	map->map = ft_split(map_str[0], '\n');
 	map->status = 1;
 	free(map_str[0]);
+	printf("HOLII2\n");
 }
 
 int	end_game(void)

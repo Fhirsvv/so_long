@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:40:05 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:27:04 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:18:12 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void init (t_map *map, t_img *img, t_player *player)
 {
-	map->coins = 0;
+	map->coins[0] = 0;
 	map->exit = 0;
 	player->n_player = 0;
 	player->movements = 0;
