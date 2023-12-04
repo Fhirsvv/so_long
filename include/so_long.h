@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:42:19 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/12/04 18:43:05 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:01:09 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	check_rectangle(t_map *map);
 int	check_border(t_map *map);
 int	flood_fill_from_player(t_map *map, int column, int row);
 int	flood_fill_from_exit(t_map *map, int column, int row);
-void	check_path(t_map map, t_map map2);
+void	check_path(int i, int j, t_map *map);
 void	draw_map(t_map *map, t_img *s_img);
 int	detect_key(int key_code, t_map *map);
 void	assign_exit(int column, int row, t_map *map);

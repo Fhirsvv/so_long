@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:58:27 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/04 18:49:04 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:04:48 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,24 +68,10 @@ int	flood_fill_from_exit(t_map *map2, int column, int row)
 }
 
 
-void	check_path(t_map map, t_map map2)
+void	check_path(int i, int j, t_map *map)
 {
-	int i;
-	int j;
-
-	printf("%i\n", map.coins);printf("MAPA:%s\n", map2.map[0]);
-	printf("MAPA:%s\n", map2.map[1]);
-	printf("MAPA:%s\n\n", map2.map[2]);
-	i = flood_fill_from_player(&map, map.player.player_y, map.player.player_x);
-	printf("MAPA:%s\n", map2.map[0]);
-	printf("MAPA:%s\n", map2.map[1]);
-	printf("MAPA:%s\n", map2.map[2]);
-	j = flood_fill_from_exit(&map2, map2.exit_y, map2.exit_x);
-	
-	printf("COINs1:%i\n", i);
-	printf("COINs2:%i\n", j);
 	if (i > 0 || j > 0)
-		ft_error(9, &map);
+		ft_error(9, map);
 }
 
 void	ft_error(int n, t_map *map)
