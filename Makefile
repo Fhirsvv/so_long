@@ -6,14 +6,14 @@
 #    By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/19 16:13:36 by ecortes-          #+#    #+#              #
-#    Updated: 2023/12/04 14:08:55 by ecortes-         ###   ########.fr        #
+#    Updated: 2023/12/04 16:16:49 by ecortes-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
 SRC_DIR = ./src
-SRC = 
+SRC = check_map.c  draw_game.c hooks.c inits.c path.c utils.c so_long.c
 
 OBJS = $(addprefix $(SRC_DIR)/, $(SRC:.c=.o))
 BONUS_OBJS = $(addprefix $(BONUS_DIR)/, $(BONUS:.c=.o))
