@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:42:19 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/12/04 16:10:46 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:12:43 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ void	ft_error(int n, t_map *map);
 void	coin_counter(t_map *map);
 int	win_game(t_map *map);
 int	end_game(void);
+void	ft_error(int n, t_map *map);
 
 #endif
