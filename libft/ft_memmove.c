@@ -3,39 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiaz-gu <fdiaz-gu@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ecortes- <ecortes-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 15:22:59 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/09/19 14:55:28 by fdiaz-gu         ###   ########.fr       */
+/*   Created: 2023/09/20 15:14:43 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/09/20 15:14:45 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *b, const void *c, size_t len)
 {
+	unsigned int	i;
 	unsigned char	*dest;
-	unsigned char	*source;
-	size_t			i;
+	unsigned char	*src;
 
-	dest = dst;
-	source = (unsigned char *)src;
-	i = len;
-	if (dest < source)
+	dest = b;
+	src = (unsigned char *)c;
+	if (src > dest)
 	{
 		i = 0;
 		while (i < len)
 		{
-			dest[i] = source[i];
+			dest[i] = src[i];
 			i++;
 		}
 	}
-	else if (dest > source)
-	{		
+	else if (src < dest)
+	{
+		i = len;
 		while (i > 0)
 		{
 			i--;
-			dest[i] = source[i];
+			dest[i] = src[i];
 		}
 	}
 	return (dest);

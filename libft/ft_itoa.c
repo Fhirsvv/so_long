@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiaz-gu <fdiaz-gu@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ecortes- <ecortes-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/16 18:19:31 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/09/21 17:28:40 by fdiaz-gu         ###   ########.fr       */
+/*   Created: 2023/09/14 15:13:44 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/09/14 15:13:46 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	*ft_check(long int nb, char *str, int i)
 
 char	*ft_itoa(int n)
 {
-	char		*str;	
+	char		*str;
 	int			i;
 	long int	nb;
 

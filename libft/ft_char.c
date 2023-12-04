@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecortes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 15:33:44 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/09/29 15:47:12 by fdiaz-gu         ###   ########.fr       */
+/*   Created: 2023/09/28 16:02:30 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/09/28 16:02:34 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_string(char *str)
+int	ft_char(int c)
 {
-	int	count;
-	int	flag;
+	int	i;
 
-	flag = 0;
-	count = 0;
-	if (!str)
-		return (ft_print_string("(null)"));
-	while (str[count])
-	{
-		if (ft_print_char(str[count]) == -1)
-			return (-1);
-		count++;
-	}
-	if (count < 0)
-		return (-1);
-	return (count);
+	i = write(1, &c, 1);
+	return (i);
 }

@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiaz-gu <fdiaz-gu@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ecortes- <ecortes-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 18:49:19 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/09/19 09:36:40 by fdiaz-gu         ###   ########.fr       */
+/*   Created: 2023/09/12 16:15:12 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/09/12 16:15:14 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
-	char	*h_ptr;
-	char	*n_ptr;
-	size_t	remaining;
+	size_t	i;
+	size_t	j;
+	char	*result;
 
-	if (*needle == '\0')
-		return ((char *)haystack);
-	while (*haystack && len > 0)
+	i = 0;
+	if (*to_find == '\0')
+		return ((char *)(str));
+	while (str[i] != '\0' && i < n)
 	{
-		h_ptr = (char *)haystack;
-		n_ptr = (char *)needle;
-		remaining = len;
-		while (*h_ptr && *n_ptr && *h_ptr == *n_ptr && remaining > 0)
+		j = 0;
+		if (str[i] == to_find[j])
 		{
-			h_ptr++;
-			n_ptr++;
-			remaining--;
+			result = (char *)&str[i];
+			while (to_find[j] != '\0' && str[i + j] == to_find[j])
+			{
+				j++;
+			}
+			if (to_find[j] == '\0' && i + ft_strlen(to_find) <= n)
+				return (result);
 		}
-		if (*n_ptr == '\0')
-			return ((char *)haystack);
-		haystack++;
-		len--;
+		i++;
 	}
 	return (NULL);
 }

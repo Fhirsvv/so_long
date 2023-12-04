@@ -3,27 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edu <edu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 15:43:37 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/09/29 16:01:43 by fdiaz-gu         ###   ########.fr       */
+/*   Created: 2023/09/28 15:57:04 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/09/29 11:51:44 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdarg.h>
+# include <limits.h>
+# include <stdio.h>
+# include <string.h>
+# include <ctype.h>
+# include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
-int	ft_printf(char const *str, ...);
-int	ft_check_type(const char type, va_list args);
-int	ft_print_char(char c);
-int	ft_print_d_i(int nb);
-int	ft_print_string(char *str);
-int	ft_print_unsigned(unsigned int nb);
-int	ft_set_x_type(unsigned int nb, int type);
-int	ft_print_x(unsigned long nb, char *alpha);
-int	ft_print_p(void *arg);
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
+
+int		ft_char(int c);
+int		ft_dig(long nb, int base, int n);
+int		ft_print_format(char c, va_list args);
+int		ft_printf(char const *format, ...);
+int		ft_ptr(unsigned long ptr);
+int		ft_str(char *str);
 
 #endif

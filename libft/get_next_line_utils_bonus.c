@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 15:48:15 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/04 12:26:32 by ecortes-         ###   ########.fr       */
+/*   Created: 2023/10/11 13:47:33 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/12/04 12:26:44 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strjoin_2(char *s1, char *s2)
 {
@@ -22,19 +22,19 @@ char	*ft_strjoin_2(char *s1, char *s2)
 	j = -1;
 	if (!s1 || !s2)
 	{
-		s1 = malloc(sizeof(char) + 1);
+		s1 = malloc(sizeof(char) * 1);
 		if (!s1 || !s2)
 			return (NULL);
 		s1[0] = '\0';
 	}
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (str)
 	{
 		while (s1[++i] != '\0')
 			str[i] = s1[i];
 		while (s2[++j] != '\0')
 			str[i + j] = s2[j];
-		str[i + j] = '\0';
+		str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	}
 	free(s1);
 	return (str);

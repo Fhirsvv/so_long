@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_x.c                                       :+:      :+:    :+:   */
+/*   ft_ptr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edu <edu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 15:34:34 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/10/14 12:53:30 by fdiaz-gu         ###   ########.fr       */
+/*   Created: 2023/09/28 16:04:15 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/09/29 11:16:54 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_x(unsigned long nb, char *alpha)
+int	ft_ptr(unsigned long pt)
 {
-	int	count;	
+	char	*dicc;
+	int		i;
+	int		b;
 
-	count = 0;
-	if (nb >= 16)
-	{
-		count += ft_print_x(nb / 16, alpha);
-		if (count < 0)
-			return (-1);
-		count += ft_print_x(nb % 16, alpha);
-	}
-	else
-		count += ft_print_char(alpha[nb]);
-	return (count);
+	i = 0;
+	dicc = "0123456789abcdef";
+	if (pt >= 16)
+		i += ft_ptr(pt / 16);
+	b = write(1, dicc + (pt % 16), 1);
+	if (b == -1)
+		return (-1);
+	i += b;
+	return (i);
 }

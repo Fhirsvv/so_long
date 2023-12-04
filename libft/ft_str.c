@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_str.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edu <edu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 15:37:14 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/10/02 14:03:58 by fdiaz-gu         ###   ########.fr       */
+/*   Created: 2023/09/28 16:04:38 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/09/29 11:06:03 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_char(char c)
+int	ft_str(char *str)
 {
-	return (write(1, &c, 1));
+	size_t	i;
+
+	if (!str)
+		return (ft_str("(null)"));
+	i = 0;
+	while (str[i])
+	{
+		if (write(1, &str[i], 1) == -1)
+			return (-1);
+		i++;
+	}
+	return (i);
 }

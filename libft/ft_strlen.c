@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecortes- <ecortes-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 15:38:38 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/10/21 18:21:41 by fdiaz-gu         ###   ########.fr       */
+/*   Created: 2023/07/08 17:47:51 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/07/08 17:47:54 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlen(const char *str)
 
 	i = 0;
 	while (str[i])
+	{
 		i++;
+	}
 	return (i);
 }

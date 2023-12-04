@@ -3,30 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiaz-gu <fdiaz-gu@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ecortes- <ecortes-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 15:23:22 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/09/19 09:28:35 by fdiaz-gu         ###   ########.fr       */
+/*   Created: 2023/07/11 19:03:18 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/07/11 19:03:20 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
 	size_t	i;
-	size_t	j;
+	size_t	lend;
+	size_t	lens;
 
 	i = 0;
-	j = 0;
-	while (dst[i] && i < dstsize)
-		i++;
-	while (src[j] && (i + j + 1) < dstsize)
+	lend = ft_strlen(dest);
+	lens = ft_strlen(src);
+	if (size <= lend)
+		return (size + lens);
+	while (src[i] != '\0' && i < (size - lend - 1))
 	{
-		dst[i + j] = src[j];
-		j++;
+		dest[lend + i] = src[i];
+		i++;
 	}
-	if (i < dstsize)
-		dst[i + j] = '\0';
-	return (i + ft_strlen(src));
+	dest[lend + i] = '\0';
+	return (lend + lens);
 }

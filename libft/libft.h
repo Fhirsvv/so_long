@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/16 09:58:20 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/10/21 18:20:14 by fdiaz-gu         ###   ########.fr       */
+/*   Created: 2023/09/15 17:33:36 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/12/04 12:26:08 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,23 @@
 # define LIBFT_H
 
 # include <limits.h>
+# include <stdio.h>
+# include <string.h>
+# include <ctype.h>
 # include <stdlib.h>
-// # include <stdio.h>
 # include <unistd.h>
-# include "ft_printf.h"
-# include "get_next_line.h"
+#include "ft_printf.h"
+#include "get_next_line.h"
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}t_list;
+}	t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -38,8 +45,8 @@ size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-size_t	ft_strlcat(char *dest, const char *src, size_t size);
+int		ft_strncmp(char *s1, char *s2, unsigned int n);
+size_t	ft_strlcat(char *dest, char *src, size_t size);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -68,4 +75,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
 #endif

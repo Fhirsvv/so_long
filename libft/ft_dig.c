@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_dig.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecortes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 16:03:50 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/09/28 16:03:58 by ecortes-         ###   ########.fr       */
+/*   Created: 2023/09/28 16:03:01 by ecortes-          #+#    #+#             */
+/*   Updated: 2023/09/28 16:03:03 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *format, ...)
+int	ft_dig(long nb, int base, int n)
 {
 	int		i;
-	int		check;
-	va_list	args;
+	char	*dicc;
 
-	va_start(args, format);
-	i = 0;
-	while (*format)
+	if (n == 1)
+		dicc = "0123456789abcdef";
+	else
+		dicc = "0123456789ABCDEF";
+	if (nb < 0 && base == 10)
 	{
-		if (*format == '%')
-			i += ft_print_format(*++format, args);
+		if (write(1, "-", 1) != -1)
+			return (ft_dig(-nb, base, n) + 1);
 		else
-		{
-			check = write(1, format, 1);
-			if (check != -1)
-				i += check;
-		}
-		++format;
-		if (i < 0 || check == -1)
-		{
-			va_end(args);
 			return (-1);
-		}
 	}
-	va_end(args);
-	return (i);
+	else if (nb < base)
+		return (ft_char(dicc[nb]));
+	else
+	{
+		i = ft_dig(nb / base, base, n);
+		if (i <= -1)
+			return (-1);
+		return (i + ft_dig(nb % base, base, n));
+	}
 }
