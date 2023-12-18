@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:48:38 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/04 18:43:29 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:32:47 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	check_map(t_map *map)
 	return (1);
 }
 
-void	count_elements(t_map *map,t_player *player)
+void	count_elements (t_map *map, t_player *player)
 {
 	int		column;
 	int		row;	
@@ -54,11 +54,13 @@ void	count_elements(t_map *map,t_player *player)
 				player->player_y = column;
 				player->player_x = row;
 				player->n_player++;
-			}			
-		}		
+			}
+		}
 	}
 	if (map->coins < 1 || map->exit != 1 || player->n_player != 1)
 		ft_error(7, map);
+	map->coins_2 = map->coins;
+	map->coins_3 = map->coins;
 }
 
 void	check_rectangle(t_map *map)

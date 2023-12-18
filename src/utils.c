@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:14:42 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/04 18:44:46 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:18:44 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,9 @@ void	read_map(char *argv, t_map *map)
 		map_str[0] = ft_strjoin_2(map_str[1], aux_str);
 		free(aux_str);
 	}
-	map->map = ft_split(map_str[0], '\n');
+	map_copys(map_str[0], map);
 	map->status = 1;
 	free(map_str[0]);
-	printf("HOLII2\n");
 }
 
 int	end_game(void)

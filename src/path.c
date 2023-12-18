@@ -6,80 +6,66 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:58:27 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/04 19:04:48 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:40:16 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 int	flood_fill_from_player(t_map *map, int column, int row)
-{			
-	
-	// printf("MAPA:%s\n", map->map[0]);
-	// printf("MAPA:%s\n", map->map[1]);
-	// printf("MAPA:%s\n", map->map[2]);
-	// printf("------------------------\n");
-	if (map->map[column][row] != '1')
-	{		
-		if (map->map[column][row] == 'C')
-		{
-			map->coins--;
-			// ft_printf("COIN:%i\n", map->coins);
-			}
-		map->map[column][row] = '1';
-		if (map->map[column][row + 1] != '1'
-			&& map->map[column][row + 1] != 'E')
+{
+	if (map->map_2[column][row] != '1')
+	{
+		if (map->map_2[column][row] == 'C')
+			map->coins_2--;
+		map->map_2[column][row] = '1';
+		if (map->map_2[column][row + 1] != '1'
+			&& map->map_2[column][row + 1] != 'E')
 			flood_fill_from_player(map, column, row + 1);
-		if (map->map[column][row - 1] != '1'
-			&& map->map[column][row - 1] != 'E')
+		if (map->map_2[column][row - 1] != '1'
+			&& map->map_2[column][row - 1] != 'E')
 			flood_fill_from_player(map, column, row - 1);
-		if (map->map[column + 1][row] != '1'
-			&& map->map[column + 1][row] != 'E')
+		if (map->map_2[column + 1][row] != '1'
+			&& map->map_2[column + 1][row] != 'E')
 			flood_fill_from_player(map, column + 1, row);
-		if (map->map[column - 1][row] != '1'
-			&& map->map[column - 1][row] != 'E')
+		if (map->map_2[column - 1][row] != '1'
+			&& map->map_2[column - 1][row] != 'E')
 			flood_fill_from_player(map, column - 1, row);
 	}
-	// ft_printf("COIN:%s%i\n",COLOR_RED ,map->coins);
-	return (map->coins);
+	return (map->coins_2);
 }
 
-int	flood_fill_from_exit(t_map *map2, int column, int row)
+int	flood_fill_from_exit(t_map *map, int column, int row)
 {
-	printf("floodfillfromexit:%s%i\n", COLOR_GREEN, map2->coins);
-	
-	if (map2->map[column][row] != '1')
+	if (map->map_3[column][row] != '1')
 	{
-		if (map2->map[column][row] == 'C')
-			map2->coins--;
-		printf("floodfillfromexit:%s%i\n", COLOR_GREEN, map2->coins);
-		map2->map[column][row] = '1';
-		if (map2->map[column][row + 1] != '1')
-			flood_fill_from_exit(map2, column, row + 1);
-		if (map2->map[column][row - 1] != '1')
-			flood_fill_from_exit(map2, column, row - 1);
-		if (map2->map[column + 1][row] != '1')
-			flood_fill_from_exit(map2, column + 1, row);
-		if (map2->map[column - 1][row] != '1')
-			flood_fill_from_exit(map2, column - 1, row);
-	}	
-	// printf("%s%i\n", COLOR_BLUE, map->coins);
-	return (map2->coins);
+		if (map->map_3[column][row] == 'C')
+			map->coins_3--;
+		map->map_3[column][row] = '1';
+		if (map->map_3[column][row + 1] != '1')
+			flood_fill_from_exit(map, column, row + 1);
+		if (map->map_3[column][row - 1] != '1')
+			flood_fill_from_exit(map, column, row - 1);
+		if (map->map_3[column + 1][row] != '1')
+			flood_fill_from_exit(map, column + 1, row);
+		if (map->map_3[column - 1][row] != '1')
+			flood_fill_from_exit(map, column - 1, row);
+	}
+	return (map->coins_3);
 }
 
-
-void	check_path(int i, int j, t_map *map)
+void	check_path(t_map *map)
 {
-	if (i > 0 || j > 0)
+	if (map->coins_2 > 0 || map->coins_3 > 0)
 		ft_error(9, map);
 }
 
-void	ft_error(int n, t_map *map)
+void	ft_error (int n, t_map *map)
 {
 	if (n == 1)
 		ft_printf("%sError\nNo such file or directory! \n", COLOR_RED);
 	else if (n == 2)
-		ft_printf("%sError\nUsage: ./so_long maps/<filename>.ber \n", COLOR_RED);
+		ft_printf("%sError\nUsage:./so_long maps/<filename>.ber\n", COLOR_RED);
 	else if (n == 3)
 		ft_printf("%sError\nTry create one valid map! \n", COLOR_RED);
 	else if (n == 4)

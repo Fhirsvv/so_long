@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:42:19 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/12/04 19:01:09 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:18:18 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include "../minilibx_opengl/mlx.h"
 #include <math.h>
 #include <stdio.h>
 #include "../libft/libft.h"
 #include "../libft/ft_printf.h"
 #include "../libft/get_next_line.h"
-#include "mlx.h"
+//#include <mlx.h>
 # define COLOR_RED "\033[0;31m"
 # define COLOR_GREEN "\033[0;32m"
 # define COLOR_BLUE "\033[0;36m"
@@ -58,7 +59,11 @@ typedef struct s_img
 typedef struct s_map
 {
 	int coins;
+	int coins_2;
+	int coins_3;
 	char **map;
+	char **map_3;
+	char **map_2;
 	int status;
 	int exit;
 	size_t map_width;
@@ -83,7 +88,7 @@ void	check_rectangle(t_map *map);
 int	check_border(t_map *map);
 int	flood_fill_from_player(t_map *map, int column, int row);
 int	flood_fill_from_exit(t_map *map, int column, int row);
-void	check_path(int i, int j, t_map *map);
+void	check_path(t_map *map);
 void	draw_map(t_map *map, t_img *s_img);
 int	detect_key(int key_code, t_map *map);
 void	assign_exit(int column, int row, t_map *map);
@@ -92,6 +97,7 @@ void	coin_counter(t_map *map);
 int	win_game(t_map *map);
 int	end_game(void);
 void	ft_error(int n, t_map *map);
-void init (t_map *map, t_img *img, t_player *player);
+void init (t_map *map);
+void map_copys(char *str, t_map *map);
 
 #endif
