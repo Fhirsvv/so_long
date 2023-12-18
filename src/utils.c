@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:14:42 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/05 15:18:44 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:06:49 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	check_arguments(int argc, char *argv, t_map *map)
 		if ((ft_strncmp(".ber", argv + (len - 4), 4)))
 			ft_error(2, map);
 	}
-	printf("HOLII\n");
 }
 
 void	read_map(char *argv, t_map *map)
@@ -39,7 +38,6 @@ void	read_map(char *argv, t_map *map)
 	fd = open(argv, O_RDONLY);
 	if (!fd || fd < 0)
 		ft_error(1, map);
-	printf("HOLII1\n");
 	while (1)
 	{
 		aux_str = get_next_line(fd);
