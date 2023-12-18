@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:10:21 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/18 16:06:21 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:28:21 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void map_copys(char *str, t_map *map)
 {
+	if (strlen(str) == 0)
+		ft_error(1, map);
+	map->status = 1;
 	map->map = ft_split(str, '\n');
 	map->map_2 = ft_split(str, '\n');
 	map->map_3 = ft_split(str, '\n');
@@ -30,11 +33,11 @@ int main(int argc, char **argv)
 	t_map map;
 	check_arguments(argc, argv[1], &map);
 	read_map(argv[1], &map);
-	count_elements(&map, &map.player);
 	check_rectangle(&map);
 	check_border(&map);
 	init(&map);
 	check_map(&map);
+	count_elements(&map, &map.player);
 	flood_fill_from_player(&map, map.player.player_y, map.player.player_x);
 	flood_fill_from_exit(&map, map.player.player_y, map.player.player_x);
 	check_path(&map);

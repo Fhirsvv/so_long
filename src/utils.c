@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:14:42 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/18 16:06:49 by ecortes-         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:26:01 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	read_map(char *argv, t_map *map)
 		free(aux_str);
 	}
 	map_copys(map_str[0], map);
-	map->status = 1;
 	free(map_str[0]);
 }
 
