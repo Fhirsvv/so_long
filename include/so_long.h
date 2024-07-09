@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:44:51 by ecortes-          #+#    #+#             */
-/*   Updated: 2024/07/09 11:41:54 by ecortes-         ###   ########.fr       */
+/*   Updated: 2024/07/09 12:19:09 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@
 # define WALL "./sprites/walls_image.xpm"
 # define FLOOR "./sprites/floor_image.xpm"
 # define EXIT "./sprites/exit_image.xpm"
-# define A 0
-# define S 1
-# define D 2
-# define W 13
-# define ESC 53
+# define A 97
+# define S 115
+# define D 100
+# define W 119
+# define ESC 65307
 
 typedef struct s_player
 {
