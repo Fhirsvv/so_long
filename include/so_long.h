@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 16:42:19 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/12/05 15:18:18 by ecortes-         ###   ########.fr       */
+/*   Created: 2024/07/03 16:44:51 by ecortes-          #+#    #+#             */
+/*   Updated: 2024/07/09 11:41:54 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "../minilibx_opengl/mlx.h"
+#include "../mlx_linux/mlx.h"
 #include <math.h>
 #include <stdio.h>
 #include "../libft/libft.h"
 #include "../libft/ft_printf.h"
 #include "../libft/get_next_line.h"
-//#include <mlx.h>
 # define COLOR_RED "\033[0;31m"
 # define COLOR_GREEN "\033[0;32m"
 # define COLOR_BLUE "\033[0;36m"
@@ -37,7 +36,6 @@
 # define D 2
 # define W 13
 # define ESC 53
-
 
 typedef struct s_player
 {
@@ -69,7 +67,7 @@ typedef struct s_map
 	size_t map_width;
 	size_t map_height;
 	void *mlx;
-	void *mlx_win;
+	void *win;
 	int img_width;
 	int img_height;
 	int	exit_x;
@@ -90,7 +88,7 @@ int	flood_fill_from_player(t_map *map, int column, int row);
 int	flood_fill_from_exit(t_map *map, int column, int row);
 void	check_path(t_map *map);
 void	draw_map(t_map *map, t_img *s_img);
-int	detect_key(int key_code, t_map *map);
+int	key_hook(int key_code, t_map *map);
 void	assign_exit(int column, int row, t_map *map);
 void	ft_error(int n, t_map *map);
 void	coin_counter(t_map *map);

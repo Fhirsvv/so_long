@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:43:12 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/04 12:26:14 by ecortes-         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:40:36 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*get_next_line(int fd);
 char	*ft_strjoin_2(char *s1, char *s2);
 char	*ft_extract_line(char *str);
 char	*ft_strchr(const char *s, int c);
-size_t	ft_strlen(const char *str);
+size_t	ft_strlen2(const char *str);
 char	*ft_new_static(char *aux);
 
 #endif

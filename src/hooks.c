@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:50:21 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/05 15:39:35 by ecortes-         ###   ########.fr       */
+/*   Updated: 2024/07/09 11:41:15 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	go_left(t_map *map, t_player *player, t_img *img)
 	draw_map(map, img);
 }
 
-int	detect_key(int key_code, t_map *map)
+int	key_hook(int key_code, t_map *map)
 {
 	t_player	*p;
 

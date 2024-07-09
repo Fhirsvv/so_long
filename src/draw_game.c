@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:30:51 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/05 15:20:47 by ecortes-         ###   ########.fr       */
+/*   Updated: 2024/07/09 11:40:19 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	draw_floor(t_map *map, t_img *img)
 		row = 0;
 		while (map->map[column][row])
 		{
-			mlx_put_image_to_window(map->mlx, map->mlx_win, img->floor_img,
+			mlx_put_image_to_window(map->mlx, map->win, img->floor_img,
 				row * 56, column * 56);
 			row++;
 		}
@@ -34,16 +34,16 @@ void	draw_floor(t_map *map, t_img *img)
 void	draw_elements(int column, int row, t_map *map, t_img *img)
 {
 	if (map->map[column][row] == '1')
-		mlx_put_image_to_window(map->mlx, map->mlx_win, img->walls_img,
+		mlx_put_image_to_window(map->mlx, map->win, img->walls_img,
 			row * 56, column * 56);
 	if (map->map[column][row] == 'P')
-		mlx_put_image_to_window(map->mlx, map->mlx_win, img->player_img,
+		mlx_put_image_to_window(map->mlx, map->win, img->player_img,
 			row * 56, column * 56);
 	if (map->map[column][row] == 'C')
-		mlx_put_image_to_window(map->mlx, map->mlx_win, img->coins_img,
+		mlx_put_image_to_window(map->mlx, map->win, img->coins_img,
 			row * 56, column * 56);
 	if (map->map[column][row] == 'E')
-		mlx_put_image_to_window(map->mlx, map->mlx_win, img->exit_img,
+		mlx_put_image_to_window(map->mlx, map->win, img->exit_img,
 			row * 56, column * 56);
 }
 

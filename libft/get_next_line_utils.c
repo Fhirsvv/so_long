@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:48:15 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/04 12:26:32 by ecortes-         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:40:51 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strjoin_2(char *s1, char *s2)
 			return (NULL);
 		s1[0] = '\0';
 	}
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	str = malloc(sizeof(char) * (ft_strlen2(s1) + ft_strlen2(s2) + 1));
 	if (str)
 	{
 		while (s1[++i] != '\0')
@@ -85,7 +85,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen2(const char *str)
 {
 	size_t	counter;
 
@@ -112,7 +112,7 @@ char	*ft_new_static(char *aux)
 		free(aux);
 		return (NULL);
 	}
-	ret = malloc(sizeof(char) * (ft_strlen(aux) - i + 1));
+	ret = malloc(sizeof(char) * (ft_strlen2(aux) - i + 1));
 	if (!ret)
 	{
 		free(aux);

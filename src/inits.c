@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:40:05 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/05 15:34:49 by ecortes-         ###   ########.fr       */
+/*   Updated: 2024/07/09 11:45:15 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init (t_map *map)
 	map->player.n_player = 0;
 	map->player.movements = 0;
 	map->mlx = mlx_init();
-	map->mlx_win = mlx_new_window(map->mlx, map->map_height * 56,
+	map->win = mlx_new_window(map->mlx, map->map_height * 56,
 			map->map_width * 56, "So_Long");
 	map->img.player_img = mlx_xpm_file_to_image(map->mlx, PLAYER,
 			&map->img_width, &map->img_height);

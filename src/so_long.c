@@ -6,7 +6,7 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:10:21 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/18 16:28:21 by ecortes-         ###   ########.fr       */
+/*   Updated: 2024/07/09 11:44:38 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	assign_exit(int column, int row, t_map *map)
 int main(int argc, char **argv)
 {
 	t_map map;
+
+
 	check_arguments(argc, argv[1], &map);
 	read_map(argv[1], &map);
 	check_rectangle(&map);
@@ -42,8 +44,8 @@ int main(int argc, char **argv)
 	flood_fill_from_exit(&map, map.player.player_y, map.player.player_x);
 	check_path(&map);
 	draw_map(&map, &map.img);
-	mlx_key_hook(map.mlx_win, detect_key, &map);
-	mlx_hook(map.mlx_win, 17, 0, end_game, &map);
+	mlx_key_hook(map.win, key_hook, &map);
+	//mlx_hook(map.win, 17, 0, end_game, &map);
 	mlx_loop(map.mlx);
 	return (0);
 }
