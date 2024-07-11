@@ -6,12 +6,13 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:48:38 by ecortes-          #+#    #+#             */
-/*   Updated: 2024/07/09 14:22:58 by ecortes-         ###   ########.fr       */
+/*   Updated: 2024/07/11 13:27:44 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+//si no es un simbolo permitido out
 int	check_map(t_map *map)
 {
 	int		row;
@@ -34,7 +35,8 @@ int	check_map(t_map *map)
 	return (1);
 }
 
-void	count_elements (t_map *map, t_player *player)
+//posicin a posicion viendo que hay y guardando el numero de cosas
+void	count_elements(t_map *map, t_player *player)
 {
 	int		column;
 	int		row;	

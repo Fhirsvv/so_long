@@ -6,12 +6,14 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:58:27 by ecortes-          #+#    #+#             */
-/*   Updated: 2023/12/05 15:40:16 by ecortes-         ###   ########.fr       */
+/*   Updated: 2024/07/11 13:28:35 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+//desde el jugador mira las posines adyacentes, si hay moneda
+//, se resta una moneda a la cantidad restante la cambias por pared
 int	flood_fill_from_player(t_map *map, int column, int row)
 {
 	if (map->map_2[column][row] != '1')
@@ -35,6 +37,8 @@ int	flood_fill_from_player(t_map *map, int column, int row)
 	return (map->coins_2);
 }
 
+// desde la salida mira las posiciones adyacentes, si hay moneda,
+// se resta a la cantidad restante y se cambia por pared
 int	flood_fill_from_exit(t_map *map, int column, int row)
 {
 	if (map->map_3[column][row] != '1')
@@ -54,13 +58,14 @@ int	flood_fill_from_exit(t_map *map, int column, int row)
 	return (map->coins_3);
 }
 
+//mediante los dos floodfill se debe poder coger todas as monedas
 void	check_path(t_map *map)
 {
 	if (map->coins_2 > 0 || map->coins_3 > 0)
 		ft_error(9, map);
 }
 
-void	ft_error (int n, t_map *map)
+void	ft_error(int n, t_map *map)
 {
 	if (n == 1)
 		ft_printf("%sError\nNo such file or directory! \n", COLOR_RED);

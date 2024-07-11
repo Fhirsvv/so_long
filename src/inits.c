@@ -6,13 +6,13 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:40:05 by ecortes-          #+#    #+#             */
-/*   Updated: 2024/07/09 11:45:15 by ecortes-         ###   ########.fr       */
+/*   Updated: 2024/07/11 13:27:35 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	init (t_map *map)
+void	init(t_map *map)
 {
 	map->coins = 0;
 	map->exit = 0;

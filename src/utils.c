@@ -6,12 +6,13 @@
 /*   By: ecortes- <ecortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:14:42 by ecortes-          #+#    #+#             */
-/*   Updated: 2024/07/09 14:24:29 by ecortes-         ###   ########.fr       */
+/*   Updated: 2024/07/11 11:51:13 by ecortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+//comprobacion que en argumenos haya al menos un .ber
 void	check_arguments(int argc, char *argv, t_map *map)
 {
 	size_t	len;
@@ -28,6 +29,7 @@ void	check_arguments(int argc, char *argv, t_map *map)
 	}
 }
 
+//leer inea a linea del mpaa y se va guardando en map0
 void	read_map(char *argv, t_map *map)
 {
 	int		fd;
